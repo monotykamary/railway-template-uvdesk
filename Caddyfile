@@ -1,0 +1,12 @@
+:8080 {
+  encode zstd gzip
+  handle /healthz {
+    respond "ok" 200
+  }
+  handle {
+    reverse_proxy 127.0.0.1:8000 {
+      header_up X-Forwarded-Proto {$PUBLIC_SCHEME:https}
+      header_up Host {$UVDESK_PUBLIC_HOST}
+    }
+  }
+}
