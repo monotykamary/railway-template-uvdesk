@@ -13,7 +13,7 @@ RUN curl -fsSL https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-communi
  && chown -R www-data:www-data /opt/uvdesk
 RUN a2enmod rewrite
 FROM build
-COPY --from=docker.io/library/caddy:2.10.2-alpine@sha256:d8c17a862962def15cde69863a3a463f25a2664942eafd7bdbf050e9c3116b83 /usr/bin/caddy /usr/bin/caddy
+COPY --from=docker.io/library/caddy:2.11.4-alpine@sha256:5f5c8640aae01df9654968d946d8f1a56c497f1dd5c5cda4cf95ab7c14d58648 /usr/bin/caddy /usr/bin/caddy
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY entrypoint.sh /usr/local/bin/uvdesk-railway-entrypoint
 RUN chmod +x /usr/local/bin/uvdesk-railway-entrypoint
