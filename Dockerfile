@@ -1,4 +1,4 @@
-FROM docker.io/library/php:8.2.34-apache-bookworm@sha256:6d6e8fa0373692f588cf9f871f141eb6eba14a9260c346ffe7c93c51646a633f AS build
+FROM docker.io/library/php:8.2.35-apache-bookworm@sha256:46804ea2b61eaf25ca47fa8aafc917015b8dad6b7a64c4364bb051a9dff275d5 AS build
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl unzip libicu-dev libjpeg62-turbo-dev libpng-dev libfreetype6-dev libzip-dev libonig-dev libc-client2007e-dev libkrb5-dev && rm -rf /var/lib/apt/lists/* \
  && docker-php-ext-configure gd --with-freetype --with-jpeg \
  && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
